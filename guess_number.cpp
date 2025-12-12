@@ -8,16 +8,20 @@ using std::cin;
 using std::endl;
 
 int main() {
+    // Constants for the game
+    const int MIN_NUMBER = 1;
+    const int MAX_NUMBER = 100;
+    
     // Seed the random number generator
     srand(time(0));
     
     // Generate a random number between 1 and 100
-    int secretNumber = rand() % 100 + 1;
+    int secretNumber = rand() % MAX_NUMBER + MIN_NUMBER;
     int guess;
     int attempts = 0;
     
     cout << "=== Welcome to the Guess Number Game! ===" << endl;
-    cout << "I've picked a number between 1 and 100." << endl;
+    cout << "I've picked a number between " << MIN_NUMBER << " and " << MAX_NUMBER << "." << endl;
     cout << "Can you guess what it is?" << endl << endl;
     
     // Game loop
@@ -35,8 +39,8 @@ int main() {
         
         attempts++;
         
-        if (guess < 1 || guess > 100) {
-            cout << "Please enter a number between 1 and 100!" << endl;
+        if (guess < MIN_NUMBER || guess > MAX_NUMBER) {
+            cout << "Please enter a number between " << MIN_NUMBER << " and " << MAX_NUMBER << "!" << endl;
             continue;
         }
         
