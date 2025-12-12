@@ -1,8 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
 
 int main() {
     // Seed the random number generator
@@ -25,7 +28,7 @@ int main() {
         // Check if input is valid
         if (cin.fail()) {
             cin.clear();
-            cin.ignore(10000, '\n');
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             cout << "Invalid input! Please enter a number." << endl;
             continue;
         }
